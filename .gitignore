@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+pdbcache/
+results/
+plots/
+*.lnk
+_site/
+.streamlit/secrets.toml

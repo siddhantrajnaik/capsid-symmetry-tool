@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this tool, please cite it as below."
+title: "Capsid Symmetry Tool: residues at the 5-fold and 3-fold axes of icosahedral virus capsids"
+authors:
+  - family-names: Naik
+    given-names: Siddhant Raj
+    affiliation: "Kusuma School of Biological Sciences (KSBS), Indian Institute of Technology Delhi"
+version: 1.0.0
+date-released: 2026-11-04
+license: MIT
+repository-code: "https://github.com/siddhantrajnaik/capsid-symmetry-tool"
+url: "https://siddhantrajnaik.github.io/capsid-symmetry-tool/"
+keywords:
+  - virus capsid
+  - icosahedral symmetry
+  - structural biology
+  - protein structure
+  - pores

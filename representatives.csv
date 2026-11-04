@@ -1,0 +1,413 @@
+pdb_id,group,family,T_label,res
+8twc,Acinetobacter phage AP205,Duinviridae,T=3,3.0
+8aac,African cichlid nackednavirus,Unclassified,T=3,3.7
+8c0o,African cichlid nackednavirus,Unclassified,T=3,3.9
+6scl,Barley yellow dwarf virus,Tombusviridae,T=3,3.0
+6yfd,Beihai levi-like virus 14,Unclassified,T=3,3.3
+6yfe,Beihai levi-like virus 19,Unclassified,T=3,3.79
+6yff,Beihai levi-like virus 21,Unclassified,T=3,3.09
+6yfg,Beihai levi-like virus 32,Unclassified,T=3,3.9
+6rj0,Betanodavirus sp.,Nodaviridae,T=3,3.7
+7l30,Binjari virus,Flaviviridae,T=3,4.4
+2bbv,Black beetle virus,Nodaviridae,T=3,2.8
+7pe1,Brome mosaic virus,Bromoviridae,T=3,3.0
+6voc,Brome mosaic virus,Bromoviridae,T=3,3.1
+7pe2,Brome mosaic virus,Bromoviridae,T=3,3.2
+1js9,Brome mosaic virus,Bromoviridae,T=3,3.4
+7bjp,Calicivirus isolate 2117,Caliciviridae,T=3,3.8
+1opo,Carnation mottle virus,Tombusviridae,T=3,3.2
+9s3s,Chaetoceros lorenzianus DNA virus,Bacilladnaviridae,T=3,2.2
+7ns0,Chaetoceros tenuissimus DNA virus type-II,Unclassified,T=3,2.4
+8jg5,Chiba virus,Caliciviridae,T=3,3.04
+7sqz,Citrus sudden death-associated virus,Tymoviridae,T=3,3.1
+7sqy,Citrus sudden death-associated virus,Tymoviridae,T=3,3.4
+1ng0,Cocksfoot mottle virus,Solemoviridae,T=3,2.7
+8c38,Cowpea chlorotic mottle virus,Bromoviridae,T=3,1.64
+1za7,Cowpea chlorotic mottle virus,Bromoviridae,T=3,2.7
+1cwp,Cowpea chlorotic mottle virus,Bromoviridae,T=3,3.2
+8cpy,Cowpea chlorotic mottle virus,Bromoviridae,T=3,3.9
+6mrl,Cucumber leaf spot virus,Tombusviridae,T=3,3.2
+1f15,Cucumber mosaic virus,Bromoviridae,T=3,3.2
+5ow6,Cucumber mosaic virus,Bromoviridae,T=3,4.2
+4llf,Cucumber necrosis virus,Tombusviridae,T=3,2.89
+4cct,Dengue virus 1,Flaviviridae,T=3,4.5
+7kv8,Dengue virus 2,Flaviviridae,T=3,2.5
+8y3g,Dengue virus 2,Flaviviridae,T=3,2.7
+8y3k,Dengue virus 2,Flaviviridae,T=3,2.8
+8y3h,Dengue virus 2,Flaviviridae,T=3,2.8
+9mve,Dengue virus 3,Flaviviridae,T=3,3.4
+9mvc,Dengue virus 3,Flaviviridae,T=3,3.59
+9mvf,Dengue virus 4,Flaviviridae,T=3,3.73
+4cbf,Dengue virus 4,Flaviviridae,T=3,4.1
+1ddl,Desmodium yellow mottle virus,Tymoviridae,T=3,2.7
+7esd,Donggang virus,Flaviviridae,T=3,3.9
+8yf7,Dragon grouper nervous necrosis virus,Nodaviridae,T=3,2.82
+8yf9,Dragon grouper nervous necrosis virus,Nodaviridae,T=3,3.12
+8yf6,Dragon grouper nervous necrosis virus,Nodaviridae,T=3,3.23
+8yf8,Dragon grouper nervous necrosis virus,Nodaviridae,T=3,3.52
+1gav,Enterobacteria phage GA,Fiersviridae,T=3,3.4
+1fr5,Enterobacteria phage fr,Fiersviridae,T=3,3.5
+1frs,Enterobacteria phage fr,Fiersviridae,T=3,3.5
+4wiz,Epinephelus coioides nervous necrosis virus,Nodaviridae,T=3,3.6
+9q1b,Escherichia phage MS2 (Emesvirus zinderi),Fiersviridae,T=3,1.74
+9q1d,Escherichia phage MS2 (Emesvirus zinderi),Fiersviridae,T=3,1.75
+9n41,Escherichia phage MS2 (Emesvirus zinderi),Fiersviridae,T=3,2.2
+2bu1,Escherichia phage MS2 (Emesvirus zinderi),Fiersviridae,T=3,2.2
+8w5h,Escherichia phage Qbeta (Qubevirus durum),Fiersviridae,T=3,2.8
+8w5l,Escherichia phage Qbeta (Qubevirus durum),Fiersviridae,T=3,2.8
+8w5n,Escherichia phage Qbeta (Qubevirus durum),Fiersviridae,T=3,3.1
+8w5r,Escherichia phage Qbeta (Qubevirus durum),Fiersviridae,T=3,3.1
+6gsh,Feline calicivirus,Caliciviridae,T=3,3.0
+3m8l,Feline calicivirus,Caliciviridae,T=3,3.4
+4ftb,Flock House virus,Nodaviridae,T=3,2.7
+4fts,Flock House virus,Nodaviridae,T=3,3.2
+4fte,Flock House virus,Nodaviridae,T=3,3.5
+4fsj,Flock House virus,Nodaviridae,T=3,3.5
+8uyw,Hepatitis B virus,Hepadnaviridae,T=3,3.1
+8uyu,Hepatitis B virus,Hepadnaviridae,T=3,3.3
+6ui6,Hepatitis B virus,Hepadnaviridae,T=3,3.53
+7eoy,Hepatitis B virus,Hepadnaviridae,T=3,3.6
+9nau,Human astrovirus 1,Astroviridae,T=3,2.77
+7k6v,Human norovirus,Caliciviridae,T=3,3.0
+27zd,Human norovirus,Norovirus,T=3,3.1
+7mry,Human norovirus,Caliciviridae,T=3,3.8
+7kjp,Human norovirus,Caliciviridae,T=3,3.86
+5wsn,Japanese encephalitis virus,Flaviviridae,T=3,4.3
+5ywo,Japanese encephalitis virus,Flaviviridae,T=3,4.7
+7kv9,Kunjin virus,Flaviviridae,T=3,2.9
+7kva,Kunjin virus,Flaviviridae,T=3,3.1
+7xpf,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=3,3.13
+7xpa,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=3,3.33
+7xpd,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=3,3.74
+9foj,Langat virus,Flaviviridae,T=3,3.82
+6yfm,Leviviridae sp. (unclassified levivirus),Fiersviridae,T=3,2.76
+6yfp,Leviviridae sp. (unclassified levivirus),Fiersviridae,T=3,3.1
+6yfn,Leviviridae sp. (unclassified levivirus),Fiersviridae,T=3,3.19
+6yf9,Leviviridae sp. (unclassified levivirus),Fiersviridae,T=3,3.2
+6jjc,Macrobrachium rosenbergii nodavirus,Nodaviridae,T=3,2.92
+6jjd,Macrobrachium rosenbergii nodavirus,Nodaviridae,T=3,3.21
+6h2b,Macrobrachium rosenbergii nodavirus,Nodaviridae,T=3,3.28
+3jb8,Maize chlorotic mottle virus,Tombusviridae,T=3,3.6
+6yf7,Marine phage AC,Unclassified,T=3,3.4
+2zah,Melon necrotic spot virus,Tombusviridae,T=3,2.81
+7n7f,Murine norovirus 1,Caliciviridae,T=3,3.0
+6p4l,Murine norovirus 1,Caliciviridae,T=3,3.1
+6p4j,Murine norovirus 1,Caliciviridae,T=3,3.1
+6p4k,Murine norovirus 1,Caliciviridae,T=3,3.1
+7kvb,Murray Valley encephalitis virus,Flaviviridae,T=3,3.7
+1nov,Nodamura virus,Nodaviridae,T=3,3.5
+1ihm,Norwalk virus,Caliciviridae,T=3,3.4
+3jbm,Orange-spotted grouper nervous necrosis virus,Nodaviridae,T=3,3.9
+4nwv,Orsay virus,Nodaviridae,T=3,3.25
+4nww,Orsay virus,Nodaviridae,T=3,3.75
+4v99,Panicum mosaic virus,Tombusviridae,T=3,2.9
+1f8v,Pariacoto virus,Nodaviridae,T=3,3.0
+6ab6,Penaeus vannamei nodavirus,Nodaviridae,T=3,3.5
+1e57,Physalis mottle virus,Tymoviridae,T=3,3.2
+2xpj,Physalis mottle virus,Tymoviridae,T=3,3.4
+1qjz,Physalis mottle virus,Tymoviridae,T=3,3.8
+2wws,Physalis mottle virus,Tymoviridae,T=3,3.9
+6sco,Potato leafroll virus,Solemoviridae,T=3,3.3
+1dwn,Pseudomonas phage PP7,Fiersviridae,T=3,3.5
+2vf9,Pseudomonas phage PRR1,Fiersviridae,T=3,3.5
+4ang,Pseudomonas phage PRR1,Fiersviridae,T=3,3.5
+9i3h,Rabbit hemorrhagic disease virus,Caliciviridae,T=3,2.5
+9i90,Rabbit hemorrhagic disease virus,Caliciviridae,T=3,3.2
+9i9d,Rabbit hemorrhagic disease virus,Caliciviridae,T=3,3.3
+9i8r,Rabbit hemorrhagic disease virus,Caliciviridae,T=3,3.3
+9jjj,Rabbit hemorrhagic disease virus 2,Caliciviridae,T=3,2.45
+9jjg,Rabbit hemorrhagic disease virus 2,Caliciviridae,T=3,2.46
+6mrm,Red clover necrotic mosaic virus,Tombusviridae,T=3,2.9
+1f2n,Rice yellow mottle virus,Solemoviridae,T=3,2.8
+2izw,Ryegrass mottle virus,Solemoviridae,T=3,2.9
+2gh8,San Miguel sea lion virus 4,Caliciviridae,T=3,3.2
+7dod,Sapovirus Hu/GI.6/Nichinan/FP05284/2005/JPN,Caliciviridae,T=3,2.9
+1smv,Sesbania mosaic virus,Solemoviridae,T=3,3.0
+2vq0,Sesbania mosaic virus,Solemoviridae,T=3,3.6
+1x33,Sesbania mosaic virus,Solemoviridae,T=3,3.6
+1x35,Sesbania mosaic virus,Solemoviridae,T=3,4.1
+7xpg,Sinaivirus apis,Sinhaliviridae,T=3,3.51
+6otf,Snow Mountain virus,Caliciviridae,T=3,3.1
+4sbv,Southern bean mosaic virus,Solemoviridae,T=3,2.8
+6zqv,Spondweni virus,Flaviviridae,T=3,2.6
+8r8l,Tick-borne encephalitis virus,Flaviviridae,T=3,3.03
+9h28,Tick-borne encephalitis virus,Flaviviridae,T=3,3.22
+9fk0,Tick-borne encephalitis virus,Flaviviridae,T=3,3.22
+7z51,Tick-borne encephalitis virus,Flaviviridae,T=3,3.3
+1laj,Tomato aspermy virus,Bromoviridae,T=3,3.4
+2tbv,Tomato bushy stunt virus,Tombusviridae,T=3,2.9
+9cvg,Tulane virus,Caliciviridae,T=3,2.08
+9hc5,Tulane virus,Caliciviridae,T=3,2.6
+8vg6,Tulane virus,Caliciviridae,T=3,2.6
+8vjr,Tulane virus,Caliciviridae,T=3,2.63
+9y2z,Turnip crinkle virus,Tombusviridae,T=3,2.87
+9qvf,Turnip crinkle virus,Tombusviridae,T=3,3.13
+9qvg,Turnip crinkle virus,Tombusviridae,T=3,3.43
+9qvh,Turnip crinkle virus,Tombusviridae,T=3,3.47
+2fz1,Turnip yellow mosaic virus,Tymoviridae,T=3,2.9
+2fz2,Turnip yellow mosaic virus,Tymoviridae,T=3,2.9
+1auy,Turnip yellow mosaic virus,Tymoviridae,T=3,3.2
+1w39,Turnip yellow mosaic virus,Tymoviridae,T=3,3.75
+9q8j,Turnip yellows virus,Solemoviridae,T=3,3.47
+9fhp,Turnip yellows virus,Solemoviridae,T=3,4.08
+2w4y,Unclassified Emesvirus,Fiersviridae,T=3,2.9
+2w4z,Unclassified Emesvirus,Fiersviridae,T=3,3.6
+1c8n,Unidentified tobacco necrosis virus,Tombusviridae,T=3,2.25
+1tnv,Unidentified tobacco necrosis virus,Tombusviridae,T=3,5.0
+7lch,Usutu virus,Flaviviridae,T=3,2.35
+7lcg,Usutu virus,Flaviviridae,T=3,2.42
+6yft,Wenzhou levi-like virus 1,Unclassified,T=3,3.5
+6yfu,Wenzhou levi-like virus 4,Unclassified,T=3,4.02
+6izl,Wenzhou tombus-like virus 18,Unclassified,T=3,3.3
+9js7,Zika virus,Flaviviridae,T=3,2.84
+6co8,Zika virus,Flaviviridae,T=3,3.1
+9vwm,Zika virus,Flaviviridae,T=3,3.2
+5iz7,Zika virus,Flaviviridae,T=3,3.7
+8tw2,Acinetobacter phage AP205,Duinviridae,T=4,3.39
+7v4t,Alphavirus M1,Togaviridae,T=4,4.04
+2yew,Barmah Forest virus,Togaviridae,T=4,5.0
+6nk6,Chikungunya virus,Togaviridae,T=4,4.06
+6nk5,Chikungunya virus,Togaviridae,T=4,4.16
+7cvz,Chikungunya virus,Togaviridae,T=4,4.7
+6nk7,Chikungunya virus,Togaviridae,T=4,4.99
+8vd4,Dubowvirus dv80alpha,Unclassified,T=4,3.1
+8vd5,Dubowvirus dv80alpha,Unclassified,T=4,3.2
+6b23,Dubowvirus dv80alpha,Unclassified,T=4,3.7
+6ygi,Duck hepatitis B virus,Hepadnaviridae,T=4,3.0
+6ygh,Duck hepatitis B virus,Hepadnaviridae,T=4,3.7
+6xo4,Eastern equine encephalitis virus,Togaviridae,T=4,4.2
+6mx4,Eastern equine encephalitis virus,Togaviridae,T=4,4.4
+9ay1,Eastern equine encephalitis virus,Togaviridae,T=4,4.6
+6mx7,Eastern equine encephalitis virus,Togaviridae,T=4,4.8
+7jw1,Enterobacteria phage P4,Unclassified,T=4,4.19
+7fd2,Getah virus,Togaviridae,T=4,2.81
+7wc2,Getah virus,Togaviridae,T=4,3.5
+3s6p,Helicoverpa armigera stunt virus,Alphatetraviridae,T=4,2.5
+8px6,Hepatitis B virus,Hepadnaviridae,T=4,2.5
+6hu4,Hepatitis B virus,Hepadnaviridae,T=4,2.64
+6htx,Hepatitis B virus,Hepadnaviridae,T=4,2.66
+8uyx,Hepatitis B virus,Hepadnaviridae,T=4,2.7
+6ouu,Human norovirus,Caliciviridae,T=4,4.1
+7xgz,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=4,3.24
+7xpe,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=4,3.32
+7xpb,Lake Sinai virus (Sinaivirus sinaiense),Sinhaliviridae,T=4,3.91
+7a4j,Lambdavirus lambda,Unclassified,T=4,3.04
+7ko8,Mayaro virus,Togaviridae,T=4,4.4
+6w2u,Mayaro virus,Togaviridae,T=4,4.8
+7anm,Nudaurelia capensis omega virus,Alphatetraviridae,T=4,2.72
+1ohf,Nudaurelia capensis omega virus,Alphatetraviridae,T=4,2.8
+8aay,Nudaurelia capensis omega virus,Alphatetraviridae,T=4,3.39
+8ac6,Nudaurelia capensis omega virus,Alphatetraviridae,T=4,3.63
+2qqp,Providence virus Helicoverpa zea /United States/vFLM1/-,Carmotetraviridae,T=4,3.8
+6imm,Sindbis virus,Togaviridae,T=4,3.5
+8egt,Staphylococcus phage Andhra,Rountreeviridae,T=4,3.5
+6iat,Staphylococcus phage P68,Rountreeviridae,T=4,3.3
+6ib1,Staphylococcus phage P68,Rountreeviridae,T=4,3.5
+7sfv,Venezuelan equine encephalitis virus,Togaviridae,T=4,4.0
+7sfu,Venezuelan equine encephalitis virus,Togaviridae,T=4,4.2
+7n1i,Venezuelan equine encephalitis virus,Togaviridae,T=4,4.2
+7n1h,Venezuelan equine encephalitis virus,Togaviridae,T=4,4.3
+8g1r,Vibrio phage ICP1_2011_A,Unclassified,T=4,3.4
+8dec,Western equine encephalitis virus,Togaviridae,T=4,4.7
+6edj,Woodchuck hepatitis virus,Hepadnaviridae,T=4,4.52
+5aoo,Aichi virus,Picornaviridae,pseudo T=3 (P=3),2.1
+5gka,Aichi virus,Picornaviridae,pseudo T=3 (P=3),3.7
+5lvc,Aichi virus,Picornaviridae,pseudo T=3 (P=3),4.2
+7chk,Apple latent spherical virus,Secoviridae,pseudo T=3 (P=3),2.87
+1pgl,Bean pod mottle virus,Secoviridae,pseudo T=3 (P=3),2.8
+1pgw,Bean pod mottle virus,Secoviridae,pseudo T=3 (P=3),2.9
+1bmv,Bean pod mottle virus,Secoviridae,pseudo T=3 (P=3),3.0
+5mqc,Black queen cell virus,Dicistroviridae,pseudo T=3 (P=3),3.4
+6thd,Bovine enterovirus,Picornaviridae,pseudo T=3 (P=3),2.23
+6thn,Bovine enterovirus,Picornaviridae,pseudo T=3 (P=3),2.6
+1bev,Bovine enterovirus,Picornaviridae,pseudo T=3 (P=3),3.0
+6qcc,Broad bean stain virus,Secoviridae,pseudo T=3 (P=3),3.22
+5npx,Broad bean stain virus,Secoviridae,pseudo T=3 (P=3),3.7
+8b38,Chaetoceros socialis f. radians RNA virus 01,Marnaviridae,pseudo T=3 (P=3),3.0
+6shl,Chaetoceros tenuissimus RNA virus type II,Marnaviridae,pseudo T=3 (P=3),3.1
+5fmo,Cowpea mosaic virus,Secoviridae,pseudo T=3 (P=3),2.3
+1ny7,Cowpea mosaic virus,Secoviridae,pseudo T=3 (P=3),3.0
+5a33,Cowpea mosaic virus,Secoviridae,pseudo T=3 (P=3),3.04
+5a32,Cowpea mosaic virus,Secoviridae,pseudo T=3 (P=3),3.44
+6aku,Coxsackievirus A10,Picornaviridae,pseudo T=3 (P=3),2.7
+6akt,Coxsackievirus A10,Picornaviridae,pseudo T=3 (P=3),2.8
+8f7y,Coxsackievirus A10,Picornaviridae,pseudo T=3 (P=3),2.8
+6iij,Coxsackievirus A10,Picornaviridae,pseudo T=3 (P=3),2.84
+5c8c,Coxsackievirus A16,Picornaviridae,pseudo T=3 (P=3),2.5
+5c4w,Coxsackievirus A16,Picornaviridae,pseudo T=3 (P=3),2.65
+6lhk,Coxsackievirus A16,Picornaviridae,pseudo T=3 (P=3),2.65
+5c9a,Coxsackievirus A16,Picornaviridae,pseudo T=3 (P=3),2.7
+1z7s,Coxsackievirus A21,Picornaviridae,pseudo T=3 (P=3),3.2
+4q4w,Coxsackievirus A24,Picornaviridae,pseudo T=3 (P=3),1.4
+4q4x,Coxsackievirus A24,Picornaviridae,pseudo T=3 (P=3),1.65
+7oj7,Coxsackievirus A24,Picornaviridae,pseudo T=3 (P=3),1.78
+6tsd,Coxsackievirus A24,Picornaviridae,pseudo T=3 (P=3),1.81
+9vfu,Coxsackievirus A6,Picornaviridae,pseudo T=3 (P=3),2.11
+9vfq,Coxsackievirus A6,Picornaviridae,pseudo T=3 (P=3),2.23
+9vfs,Coxsackievirus A6,Picornaviridae,pseudo T=3 (P=3),2.49
+7qvx,Coxsackievirus A6,Picornaviridae,pseudo T=3 (P=3),2.5
+8s7j,Coxsackievirus A9,Picornaviridae,pseudo T=3 (P=3),2.26
+9exi,Coxsackievirus A9,Picornaviridae,pseudo T=3 (P=3),2.31
+9fp5,Coxsackievirus A9,Picornaviridae,pseudo T=3 (P=3),2.5
+9fcz,Coxsackievirus A9,Picornaviridae,pseudo T=3 (P=3),2.53
+9fjc,Coxsackievirus B1,Picornaviridae,pseudo T=3 (P=3),2.15
+9fjd,Coxsackievirus B1,Picornaviridae,pseudo T=3 (P=3),2.15
+9tkm,Coxsackievirus B1,Picornaviridae,pseudo T=3 (P=3),2.7
+9fje,Coxsackievirus B1,Picornaviridae,pseudo T=3 (P=3),3.01
+7w14,Coxsackievirus B3,Picornaviridae,pseudo T=3 (P=3),2.2
+7w17,Coxsackievirus B3,Picornaviridae,pseudo T=3 (P=3),2.5
+7vy0,Coxsackievirus B3,Picornaviridae,pseudo T=3 (P=3),2.7
+4gb3,Coxsackievirus B3,Picornaviridae,pseudo T=3 (P=3),2.74
+6zck,Coxsackievirus B4,Picornaviridae,pseudo T=3 (P=3),2.7
+6zms,Coxsackievirus B4,Picornaviridae,pseudo T=3 (P=3),3.4
+8r5z,Coxsackievirus B5,Picornaviridae,pseudo T=3 (P=3),2.6
+8r5y,Coxsackievirus B5,Picornaviridae,pseudo T=3 (P=3),2.7
+7xb2,Coxsackievirus B5,Picornaviridae,pseudo T=3 (P=3),2.81
+7wl3,Coxsackievirus B5,Picornaviridae,pseudo T=3 (P=3),2.95
+1b35,Cricket paralysis virus,Dicistroviridae,pseudo T=3 (P=3),2.4
+6f5j,Deformed wing virus,Iflaviridae,pseudo T=3 (P=3),3.1
+5mv5,Deformed wing virus,Iflaviridae,pseudo T=3 (P=3),3.1
+5l8q,Deformed wing virus,Iflaviridae,pseudo T=3 (P=3),3.2
+5l7q,Deformed wing virus,Iflaviridae,pseudo T=3 (P=3),3.44
+5mm2,Drosophila melanogaster Nora virus,Unclassified,pseudo T=3 (P=3),2.7
+5mjv,Echovirus 22 (Parechovirus B),Picornaviridae,pseudo T=3 (P=3),3.09
+4z92,Echovirus 22 (Parechovirus B),Picornaviridae,pseudo T=3 (P=3),3.1
+6rjf,Echovirus E1,Picornaviridae,pseudo T=3 (P=3),3.5
+1ev1,Echovirus E1,Picornaviridae,pseudo T=3 (P=3),3.55
+6o06,Echovirus E1,Picornaviridae,pseudo T=3 (P=3),3.6
+6la3,Echovirus E11,Picornaviridae,pseudo T=3 (P=3),2.32
+6la4,Echovirus E11,Picornaviridae,pseudo T=3 (P=3),2.34
+6la6,Echovirus E11,Picornaviridae,pseudo T=3 (P=3),2.39
+6lap,Echovirus E11,Picornaviridae,pseudo T=3 (P=3),2.49
+9tf0,Echovirus E18,Picornaviridae,pseudo T=3 (P=3),2.26
+9tf1,Echovirus E18,Picornaviridae,pseudo T=3 (P=3),2.44
+9tf2,Echovirus E18,Picornaviridae,pseudo T=3 (P=3),2.86
+7xxa,Echovirus E18,Picornaviridae,pseudo T=3 (P=3),3.09
+7eah,Echovirus E3,Picornaviridae,pseudo T=3 (P=3),3.1
+7c9x,Echovirus E3,Picornaviridae,pseudo T=3 (P=3),3.4
+7eai,Echovirus E3,Picornaviridae,pseudo T=3 (P=3),3.8
+7eak,Echovirus E3,Picornaviridae,pseudo T=3 (P=3),3.9
+7c9t,Echovirus E30,Picornaviridae,pseudo T=3 (P=3),2.9
+7c9s,Echovirus E30,Picornaviridae,pseudo T=3 (P=3),2.9
+7c81,Echovirus E30,Picornaviridae,pseudo T=3 (P=3),3.1
+7c9v,Echovirus E30,Picornaviridae,pseudo T=3 (P=3),3.3
+6ilp,Echovirus E6,Picornaviridae,pseudo T=3 (P=3),2.9
+6ilk,Echovirus E6,Picornaviridae,pseudo T=3 (P=3),3.0
+6ilo,Echovirus E6,Picornaviridae,pseudo T=3 (P=3),3.2
+6ilm,Echovirus E6,Picornaviridae,pseudo T=3 (P=3),3.4
+2x5i,Echovirus E7,Picornaviridae,pseudo T=3 (P=3),3.1
+3vbh,Enterovirus A71,Picornaviridae,pseudo T=3 (P=3),2.3
+8c6d,Enterovirus A71,Picornaviridae,pseudo T=3 (P=3),2.4
+9f5s,Enterovirus A71,Picornaviridae,pseudo T=3 (P=3),2.5
+3vbf,Enterovirus A71,Picornaviridae,pseudo T=3 (P=3),2.6
+7taj,Enterovirus D68,Picornaviridae,pseudo T=3 (P=3),2.0
+7t9p,Enterovirus D68,Picornaviridae,pseudo T=3 (P=3),2.0
+7taf,Enterovirus D68,Picornaviridae,pseudo T=3 (P=3),2.0
+9mwz,Enterovirus D68,Picornaviridae,pseudo T=3 (P=3),2.0
+9d8w,Enterovirus D94,Picornaviridae,pseudo T=3 (P=3),2.6
+9d8x,Enterovirus D94,Picornaviridae,pseudo T=3 (P=3),2.9
+9d9s,Enterovirus D94,Picornaviridae,pseudo T=3 (P=3),2.9
+5osn,Enterovirus E,Picornaviridae,pseudo T=3 (P=3),2.3
+6t40,Enterovirus F,Picornaviridae,pseudo T=3 (P=3),1.67
+6t4c,Enterovirus F,Picornaviridae,pseudo T=3 (P=3),1.8
+6t48,Enterovirus F,Picornaviridae,pseudo T=3 (P=3),2.17
+2ws9,Equine rhinitis A virus,Picornaviridae,pseudo T=3 (P=3),3.0
+2wff,Equine rhinitis A virus,Picornaviridae,pseudo T=3 (P=3),4.0
+2xbo,Equine rhinitis A virus,Picornaviridae,pseudo T=3 (P=3),4.0
+1qqp,Foot-and-mouth disease virus,Picornaviridae,pseudo T=3 (P=3),1.9
+1zba,Foot-and-mouth disease virus,Picornaviridae,pseudo T=3 (P=3),2.0
+4iv1,Foot-and-mouth disease virus,Picornaviridae,pseudo T=3 (P=3),2.1
+9mpz,Foot-and-mouth disease virus,Picornaviridae,pseudo T=3 (P=3),2.14
+2y26,Grapevine fanleaf virus,Secoviridae,pseudo T=3 (P=3),2.7
+5foj,Grapevine fanleaf virus,Secoviridae,pseudo T=3 (P=3),2.8
+4v5t,Grapevine fanleaf virus,Secoviridae,pseudo T=3 (P=3),3.0
+4v5w,Grapevine fanleaf virus,Secoviridae,pseudo T=3 (P=3),3.7
+9tbi,Hepatitis A virus,Picornaviridae,pseudo T=3 (P=3),1.7
+9tbh,Hepatitis A virus,Picornaviridae,pseudo T=3 (P=3),1.7
+4qpi,Hepatitis A virus,Picornaviridae,pseudo T=3 (P=3),3.01
+6jhs,Hepatitis A virus,Picornaviridae,pseudo T=3 (P=3),3.05
+3jau,Human enterovirus,Picornaviridae,pseudo T=3 (P=3),4.8
+7ozk,Human enterovirus 70,Picornaviridae,pseudo T=3 (P=3),2.31
+7opx,Human enterovirus 70,Picornaviridae,pseudo T=3 (P=3),2.63
+7ozl,Human enterovirus 70,Picornaviridae,pseudo T=3 (P=3),2.74
+7ozi,Human enterovirus 70,Picornaviridae,pseudo T=3 (P=3),3.73
+6gv4,Human parechovirus 3,Picornaviridae,pseudo T=3 (P=3),2.8
+5apm,Human parechovirus 3,Picornaviridae,pseudo T=3 (P=3),4.3
+5lwg,Israeli acute paralysis virus,Dicistroviridae,pseudo T=3 (P=3),3.2
+5lwi,Israeli acute paralysis virus,Dicistroviridae,pseudo T=3 (P=3),3.8
+5cdc,Israeli acute paralysis virus,Dicistroviridae,pseudo T=3 (P=3),4.0
+7bgk,Kashmir bee virus,Dicistroviridae,pseudo T=3 (P=3),2.8
+7bc3,Kashmir bee virus,Dicistroviridae,pseudo T=3 (P=3),2.9
+7bg8,Kashmir bee virus,Dicistroviridae,pseudo T=3 (P=3),4.0
+7be9,Kashmir bee virus,Dicistroviridae,pseudo T=3 (P=3),4.2
+9hau,Leviviridae sp. (unclassified levivirus),Unclassified,pseudo T=3 (P=3),2.9
+9has,Leviviridae sp. (unclassified levivirus),Fiersviridae,pseudo T=3 (P=3),3.2
+9hat,Leviviridae sp. (unclassified levivirus),Unclassified,pseudo T=3 (P=3),3.6
+3jb4,Ljungan virus 87-012,Picornaviridae,pseudo T=3 (P=3),3.8
+2mev,Mengo virus,Picornaviridae,pseudo T=3 (P=3),3.0
+1mec,Mengo virus,Picornaviridae,pseudo T=3 (P=3),3.2
+6iic,Mud crab virus,Dicistroviridae,pseudo T=3 (P=3),3.3
+9u04,Poliovirus 1,Picornaviridae,pseudo T=3 (P=3),1.7
+1hxs,Poliovirus 1,Picornaviridae,pseudo T=3 (P=3),2.2
+9wah,Poliovirus 1,Picornaviridae,pseudo T=3 (P=3),2.43
+9f3q,Poliovirus 1,Picornaviridae,pseudo T=3 (P=3),2.75
+9u05,Poliovirus 2,Picornaviridae,pseudo T=3 (P=3),1.6
+8ayz,Poliovirus 2,Picornaviridae,pseudo T=3 (P=3),1.88
+9h94,Poliovirus 2,Picornaviridae,pseudo T=3 (P=3),2.1
+9f59,Poliovirus 2,Picornaviridae,pseudo T=3 (P=3),2.3
+9u06,Poliovirus 3,Picornaviridae,pseudo T=3 (P=3),1.8
+1pvc,Poliovirus 3,Picornaviridae,pseudo T=3 (P=3),2.4
+8ayx,Poliovirus 3,Picornaviridae,pseudo T=3 (P=3),2.5
+8ayy,Poliovirus 3,Picornaviridae,pseudo T=3 (P=3),2.6
+7thx,Possum enterovirus W6,Picornaviridae,pseudo T=3 (P=3),2.96
+1r1a,Rhinovirus 1A,Picornaviridae,pseudo T=3 (P=3),3.2
+2hwf,Rhinovirus 1A,Picornaviridae,pseudo T=3 (P=3),3.8
+2hwe,Rhinovirus 1A,Picornaviridae,pseudo T=3 (P=3),3.8
+2hwd,Rhinovirus 1A,Picornaviridae,pseudo T=3 (P=3),3.8
+9fx1,Rhinovirus 89,Picornaviridae,pseudo T=3 (P=3),1.76
+9fx9,Rhinovirus 89,Picornaviridae,pseudo T=3 (P=3),1.96
+6sk7,Rhinovirus 89,Picornaviridae,pseudo T=3 (P=3),2.9
+1nd2,Rhinovirus A16,Picornaviridae,pseudo T=3 (P=3),2.5
+1ncr,Rhinovirus A16,Picornaviridae,pseudo T=3 (P=3),2.7
+1qju,Rhinovirus A16,Picornaviridae,pseudo T=3 (P=3),2.8
+1qjx,Rhinovirus A16,Picornaviridae,pseudo T=3 (P=3),2.8
+1fpn,Rhinovirus A2,Picornaviridae,pseudo T=3 (P=3),2.6
+3tn9,Rhinovirus A2,Picornaviridae,pseudo T=3 (P=3),3.0
+9g0b,Rhinovirus A2,Picornaviridae,pseudo T=3 (P=3),3.2
+3vdd,Rhinovirus A2,Picornaviridae,pseudo T=3 (P=3),3.2
+5w3m,Rhinovirus B14,Picornaviridae,pseudo T=3 (P=3),2.26
+7bg7,Rhinovirus B14,Picornaviridae,pseudo T=3 (P=3),2.4
+1ncq,Rhinovirus B14,Picornaviridae,pseudo T=3 (P=3),2.5
+5w3e,Rhinovirus B14,Picornaviridae,pseudo T=3 (P=3),2.53
+1rhi,Rhinovirus B3,Picornaviridae,pseudo T=3 (P=3),3.0
+6sk6,Rhinovirus B5,Picornaviridae,pseudo T=3 (P=3),3.2
+6sk5,Rhinovirus B5,Picornaviridae,pseudo T=3 (P=3),3.6
+5k0u,Rhinovirus C,Picornaviridae,pseudo T=3 (P=3),2.79
+5jzg,Rhinovirus C,Picornaviridae,pseudo T=3 (P=3),3.16
+6ppo,Rhinovirus C,Picornaviridae,pseudo T=3 (P=3),3.2
+6psf,Rhinovirus C,Picornaviridae,pseudo T=3 (P=3),3.5
+1aym,Rhinovirus sp.,Picornaviridae,pseudo T=3 (P=3),2.15
+1ayn,Rhinovirus sp.,Picornaviridae,pseudo T=3 (P=3),2.9
+2rs1,Rhinovirus sp.,Picornaviridae,pseudo T=3 (P=3),3.0
+5lsf,Sacbrood virus,Iflaviridae,pseudo T=3 (P=3),2.1
+6egv,Sacbrood virus,Iflaviridae,pseudo T=3 (P=3),3.18
+5oyp,Sacbrood virus,Iflaviridae,pseudo T=3 (P=3),3.22
+6eiw,Sacbrood virus,Iflaviridae,pseudo T=3 (P=3),3.87
+5cfd,Saffold virus,Picornaviridae,pseudo T=3 (P=3),2.5
+5cfc,Saffold virus,Picornaviridae,pseudo T=3 (P=3),2.5
+3cji,Seneca Valley virus (Senecavirus A),Picornaviridae,pseudo T=3 (P=3),2.3
+8cxp,Seneca Valley virus (Senecavirus A),Picornaviridae,pseudo T=3 (P=3),2.47
+6adm,Seneca Valley virus (Senecavirus A),Picornaviridae,pseudo T=3 (P=3),2.84
+6ads,Seneca Valley virus (Senecavirus A),Picornaviridae,pseudo T=3 (P=3),2.84
+5j98,Slow bee paralysis virus,Iflaviridae,pseudo T=3 (P=3),2.6
+5j96,Slow bee paralysis virus,Iflaviridae,pseudo T=3 (P=3),3.41
+5lk8,Slow bee paralysis virus,Iflaviridae,pseudo T=3 (P=3),3.42
+5lk7,Slow bee paralysis virus,Iflaviridae,pseudo T=3 (P=3),3.42
+9har,SsRNA phage ESE017,Solspiviridae,pseudo T=3 (P=3),2.8
+1oop,Swine vesicular disease virus,Picornaviridae,pseudo T=3 (P=3),3.0
+1mqt,Swine vesicular disease virus,Picornaviridae,pseudo T=3 (P=3),3.3
+1tme,Theiler's murine encephalomyelitis virus,Picornaviridae,pseudo T=3 (P=3),2.8
+1tmf,Theiler's murine encephalomyelitis virus,Picornaviridae,pseudo T=3 (P=3),3.5
+1a6c,Tobacco ringspot virus,Secoviridae,pseudo T=3 (P=3),3.5
+3nap,Triatoma virus,Dicistroviridae,pseudo T=3 (P=3),2.5
+5l7o,Triatoma virus,Dicistroviridae,pseudo T=3 (P=3),3.6

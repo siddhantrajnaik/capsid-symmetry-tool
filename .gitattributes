@@ -1,0 +1,6 @@
+*.bat text eol=crlf
+*.py text eol=lf
+*.sqlite binary
+*.ico binary
+*.png binary
+*.jpg binary
