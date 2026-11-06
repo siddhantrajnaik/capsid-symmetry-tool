@@ -34,7 +34,8 @@ jobs:
       - name: Database, plots, comparison and stem-and-leaf work
         shell: python
         run: |
-          import sqlite3, matplotlib
+          import os, sys, sqlite3, matplotlib
+          sys.path.insert(0, os.getcwd())      # inline steps run from a temp file, not from the repository folder
           matplotlib.use("Agg")
           import matplotlib.pyplot as plt
           import gate_plots, gate_compare, gate_stemleaf
