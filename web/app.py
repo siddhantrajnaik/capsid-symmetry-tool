@@ -20,13 +20,13 @@ DB = next(p for p in (os.path.join(HERE, "gate_residues.sqlite"), os.path.join(o
 
 import gate_plots, gate_compare, gate_stemleaf           # noqa: E402
 
-CREDIT = ("**Siddhant Raj Naik**, PhD scholar, Kusuma School of Biological Sciences (KSBS), "
-          "Indian Institute of Technology Delhi")
+EMAIL = "siddhantrajnaik@gmail.com"
+CREDIT = "Siddhant Raj Naik, PhD scholar, Kusuma School of Biological Sciences, IIT Delhi"
 AA_ORDER = "AVLIMFWYCGPSTNQHKRDE"
 AA_LABEL = {a: f"{a}  {gate_stemleaf.AA_NAME[a]}" for a in AA_ORDER}
 GATE_COLOR = {"5-fold": "#1d5fa8", "3-fold": "#b2512f", "2-fold": "#5b7189"}
 
-st.set_page_config(page_title="Capsid Symmetry Tool", page_icon="🦠", layout="wide")
+st.set_page_config(page_title="Capsid Symmetry Tool", layout="wide")
 
 
 def con():
@@ -52,36 +52,43 @@ def figure(w=13, h=8):
 s = q("SELECT (SELECT COUNT(DISTINCT virus) FROM structures) v, (SELECT COUNT(DISTINCT family) FROM structures) f, "
       "(SELECT COUNT(*) FROM gate_residues) g, (SELECT COUNT(*) FROM dual_positions) d").iloc[0]
 st.title("Capsid Symmetry Tool")
-st.caption("Residues guarding the 5-fold and 3-fold symmetry axes (\"gates\") of icosahedral virus capsids  ·  "
-           f"{s.v} viruses · {s.f} families · {s.g:,} gate residues · {s.d} positions at both gates")
+st.caption(f"{s.v} viruses, {s.f} families, {s.g:,} residues near a symmetry axis")
 
 page = st.sidebar.radio("Page", ["Home", "Browse", "Find", "Plots", "Stem-and-leaf", "Compare", "Help"])
 st.sidebar.markdown("---")
-st.sidebar.markdown("Created by " + CREDIT)
-st.sidebar.caption("Read-only web version. To analyse new PDB entries or your own models, use the desktop program "
-                   "from the GitHub repository.")
+st.sidebar.markdown(f"Made by **Siddhant Raj Naik**  \nPhD scholar, Kusuma School of Biological Sciences, IIT Delhi  \n"
+                    f"[{EMAIL}](mailto:{EMAIL})")
+st.sidebar.caption("You can look things up here. To run new structures, download the desktop version from "
+                   "[GitHub](https://github.com/siddhantrajnaik/capsid-symmetry-tool).")
 classes = gate_plots.classes(con())
 
 
 # ---------------------------------------------------------------- pages
 if page == "Home":
     st.markdown(f"""
-A virus shell (**capsid**) is built from many copies of the same protein arranged with icosahedral symmetry. It has
-three kinds of symmetry axis: **5-fold** (6 axes), **3-fold** (10) and **2-fold** (15). Where an axis passes through the
-shell there is a pore or a junction - a **gate**.
+I'm Siddhant, a PhD scholar at the Kusuma School of Biological Sciences, IIT Delhi.
 
-This tool measures, for every virus in the database, which amino acids sit at those gates, which residue numbers sit at
-**both** the 5-fold and the 3-fold gate, and which amino acids are **favoured** there more than chance would give.
+Icosahedral virus capsids have openings where their symmetry axes pass through the shell: five subunits meet at
+each 5-fold axis and three at each 3-fold axis. I wanted to know which amino acids line these openings, and whether
+the same residue ever sits at both. In Flock House virus it does. Met182 is 2.8 Å from the 5-fold axis in one
+subunit and 2.5 Å from the 3-fold axis in the other two. I wasn't sure if that was a one-off, so I checked
+{s.v} viruses.
 
-| Page | Question it answers |
-|---|---|
-| **Browse** | One virus: what sits at its gates? |
-| **Find** | One amino acid: in which viruses is it at a gate? |
-| **Plots** | Which amino acids are favoured at both gates, per capsid type? |
-| **Stem-and-leaf** | Every virus on one chart, at the distance of its closest residue. |
-| **Compare** | Two capsid types or families side by side. |
+For each structure from the PDB I worked out where the symmetry axes are, using the structure's own assembly
+operators, and measured how far every side chain is from the nearest one. Anything within 8 Å counts as sitting
+at that axis. The statistics compare those residues with the rest of the capsid shell at the same radius.
 
-Created by {CREDIT}.
+The pages on the left:
+
+- **Browse**: pick a virus and see which residues sit near each axis.
+- **Find**: pick an amino acid and see which viruses have it there.
+- **Plots**: which amino acids turn up near the axes more than you'd expect.
+- **Stem-and-leaf**: every virus on one chart, by how close its nearest residue gets.
+- **Compare**: two capsid types or families side by side.
+
+It all runs inside your browser, which is why the first load is slow.
+
+If something looks wrong, or you'd like a structure added, write to me at [{EMAIL}](mailto:{EMAIL}).
 """)
 
 elif page == "Browse":
@@ -137,8 +144,8 @@ elif page == "Browse":
                      hide_index=True, use_container_width=True)
 
 elif page == "Find":
-    st.markdown("Pick an amino acid and a gate. Distance = how far the residue's side chain is from the symmetry axis: "
-                "0-3 Å is right on the axis (in the pore), 8 Å is the outer edge of the gate.")
+    st.markdown("Pick an amino acid and an axis. The distance is from the side chain to the axis, so anything "
+                "under about 3 Å is practically on it.")
     c = st.columns(5)
     aa = c[0].selectbox("Amino acid", ["any"] + [AA_LABEL[a] for a in AA_ORDER], index=1 + AA_ORDER.index("N"))
     gate = c[1].selectbox("Gate", ["any", "5-fold", "3-fold", "2-fold"])
@@ -181,9 +188,9 @@ elif page == "Plots":
         desc = (gate_plots.build_simple if mode.startswith("Simple") else gate_plots.build)(fig, con(), cls, cut)
     st.caption(desc)
     st.pyplot(fig)
-    st.markdown("Top rows (simple answer) = favoured at both gates. Blue = 5-fold gate, orange = 3-fold gate, "
-                "\\* = significant (FDR < 0.05). Odds ratios compare each amino acid at the gate with the rest of the "
-                "capsid shell at the same radius, pooled over viruses (Cochran-Mantel-Haenszel).")
+    st.markdown("Blue bars are the 5-fold axis and orange bars the 3-fold axis. Bars to the right mean the amino "
+                "acid shows up there more often than in the rest of the shell, and a star means the difference holds "
+                "after correcting for testing all 20 amino acids. The rows at the top are the ones that are high at both.")
 
 elif page == "Stem-and-leaf":
     c = st.columns(3)
@@ -198,9 +205,9 @@ elif page == "Stem-and-leaf":
         st.code(gate_stemleaf.text(res))
 
 elif page == "Compare":
-    st.markdown("Pick two capsid types or families. For every virus the residues at the chosen gate are taken and each "
-                "amino acid's share of them is computed; the groups' average shares are compared (permutation test, "
-                "FDR over 20 amino acids). Yellow rows with * are differences unlikely to be chance.")
+    st.markdown("Pick two groups. For each virus I take the residues near the chosen axis and work out what fraction "
+                "each amino acid makes up, then compare the two groups' averages. Yellow rows are the differences "
+                "that survive a permutation test.")
     cc = gate_compare.connect(DB)
     ch = gate_compare.group_choices(cc)
     labs = [l for l, _ in ch]; spec = dict(ch)
@@ -224,23 +231,26 @@ elif page == "Compare":
 
 else:
     st.markdown(f"""
-### What is measured
-For every subunit of the capsid the program finds the true icosahedral 5-fold, 3-fold and 2-fold axes from the
-structure's own symmetry operators, then measures the shortest distance from each residue's side chain to the nearest
-axis of each kind. A residue within the cutoff (8 Å by default) is a **gate residue**. A residue number that is near a
-5-fold axis in one subunit and near a 3-fold axis in another is a **dual position**: the same position in the sequence
-guards both gates, as Met182 does in Flock House virus (PDB 4FTB).
+### How the numbers are made
 
-### Statistics
-Each amino acid is compared with capsid residues of the same structure that are not near any axis and lie at the same
-radius in the shell. Structures are combined with a Cochran-Mantel-Haenszel odds ratio, so one virus with an unusual
-composition cannot drive the result, and p-values are corrected for testing 20 amino acids (Benjamini-Hochberg FDR).
+Each PDB entry comes with the operators that build the full capsid. From those I rebuild the icosahedral group, find
+the centre of the capsid and the 6 five-fold, 10 three-fold and 15 two-fold axes, and measure the shortest distance
+from each residue's side-chain atoms to each kind of axis. A residue within 8 Å of an axis is counted as being at
+that axis. If the same residue number is near a 5-fold axis in one subunit and near a 3-fold axis in another, I
+call it a position at both axes.
 
-### Limits
-Distance to an axis is not pore radius. Only atomic models are read, not density maps. Quasi-3-fold axes of T=3
-capsids are not analysed. Viruses of one family share ancestry, so a family pattern can be inherited rather than
-selected. A conserved gate residue says where to look, not what it does.
+To decide whether an amino acid is enriched, I compare it with residues of the same structure that are at the same
+radius in the shell but not near any axis. The viruses are pooled with a Cochran-Mantel-Haenszel test, so one virus
+with an odd composition can't carry the result. The p-values are corrected for testing 20 amino acids.
 
-### Credit
-Created by {CREDIT}.
+### Things to keep in mind
+
+Being close to an axis doesn't mean a residue blocks the pore. Distance from the axis line isn't the same thing as
+pore radius. I only use atomic models, not density maps, and I don't look at the quasi-3-fold axes of T=3 capsids.
+Viruses in the same family are related, so a pattern inside one family could just be inherited.
+
+### Contact
+
+{CREDIT}. Email [{EMAIL}](mailto:{EMAIL}). The code is on
+[GitHub](https://github.com/siddhantrajnaik/capsid-symmetry-tool).
 """)
