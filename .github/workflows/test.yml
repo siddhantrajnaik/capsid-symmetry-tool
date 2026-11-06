@@ -1,0 +1,47 @@
+name: analysis test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install the pinned packages
+        run: python -m pip install -r requirements.txt
+      - name: Every native library loads and computes
+        run: python -c "import gate_env, sys; ok, rep, bad = gate_env.probe(sys.executable); print(rep); sys.exit(0 if ok else 1)"
+      - name: Analyse Flock House virus (PDB 4FTB) from scratch
+        run: python -X faulthandler gate_residue_analysis.py --pdb 4ftb --residue 182 --out ci_4ftb --no-plots
+      - name: Met182 guards both gates (5-fold 2.8 A chain A, 3-fold 2.5 A chain C)
+        shell: python
+        run: |
+          s = open("ci_4ftb/gate_summary.txt", encoding="utf-8").read()
+          print(s)
+          for want in ("M182[A] 2.8", "M182[C] 2.5", "M182 (5-fold: A 2.8 A; 3-fold: B,C 2.5 A)"):
+              assert want in s, f"missing in gate_summary.txt: {want}"
+          print("OK: results match the published database")
+      - name: Database, plots, comparison and stem-and-leaf work
+        shell: python
+        run: |
+          import sqlite3, matplotlib
+          matplotlib.use("Agg")
+          import matplotlib.pyplot as plt
+          import gate_plots, gate_compare, gate_stemleaf
+          con = sqlite3.connect("file:gate_residues.sqlite?mode=ro", uri=True)
+          print(gate_plots.build_simple(plt.figure(figsize=(16, 10)), con, "T=3", 3.0))
+          print(gate_plots.build(plt.figure(figsize=(16, 11)), con, gate_plots.ALL, 8.0))
+          c = gate_compare.connect()
+          res = gate_compare.compare(c, "family=Nodaviridae", "family=Caliciviridae", "5-fold", 8.0)
+          print(gate_compare.summary(res))
+          print(gate_stemleaf.text(gate_stemleaf.data(gate_stemleaf.connect(), "T=3")))

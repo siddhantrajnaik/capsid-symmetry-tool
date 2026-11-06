@@ -15,7 +15,8 @@ which residue positions sit at <b>both</b> gates, and which amino acids are <b>f
 </p>
 
 <p align="center">
-<a href="https://siddhantrajnaik.github.io/capsid-symmetry-tool/"><img src="https://img.shields.io/badge/web%20version-online-1d5fa8.svg" alt="web version online"></a>
+<a href="https://github.com/siddhantrajnaik/capsid-symmetry-tool/actions/workflows/test.yml"><img src="https://github.com/siddhantrajnaik/capsid-symmetry-tool/actions/workflows/test.yml/badge.svg" alt="analysis test"></a>
+<a href="https://github.com/siddhantrajnaik/capsid-symmetry-tool/actions/workflows/pages.yml"><img src="https://github.com/siddhantrajnaik/capsid-symmetry-tool/actions/workflows/pages.yml/badge.svg" alt="web version"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue.svg" alt="MIT licence"></a>
 </p>
 
