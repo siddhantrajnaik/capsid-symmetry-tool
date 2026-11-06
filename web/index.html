@@ -10,9 +10,14 @@
     <style>
       #loading { font-family: "Segoe UI", sans-serif; color: #1b2a3a; max-width: 720px; margin: 12vh auto; text-align: center; }
       #loading small { color: #5b7189; }
+      #visitors { position: fixed; right: 12px; bottom: 10px; z-index: 1000; line-height: 0; }
     </style>
   </head>
   <body>
+    <!-- visitor counter: loaded once per page visit, outside the app so clicks inside it don't add to the count -->
+    <a id="visitors" href="https://hits.sh/siddhantrajnaik.github.io/capsid-symmetry-tool/" target="_blank" rel="noopener">
+      <img src="https://hits.sh/siddhantrajnaik.github.io/capsid-symmetry-tool.svg?label=visitors&color=1d5fa8&labelColor=5b7189" alt="visitors" />
+    </a>
     <div id="root">
       <div id="loading">
         <img src="gate_icon.png" width="96" alt="" /><h2>Capsid Symmetry Tool</h2>
