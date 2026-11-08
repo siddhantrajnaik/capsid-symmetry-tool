@@ -27,6 +27,7 @@ FONT_H = ("Segoe UI Semibold", 15)
 FONT_S = ("Segoe UI", 9)
 MONO = ("Consolas", 10)
 GATE_COLOR = {"5-fold": "#1d5fa8", "3-fold": "#b2512f", "2-fold": "#5b7189"}
+WEB_URL = "https://siddhantrajnaik.github.io/capsid-symmetry-tool/"
 AA_ORDER = "AVLIMFWYCGPSTNQHKRDE"
 AA_LABEL = {a: f"{a}  {n}" for a, n in zip(AA_ORDER, (
     "Alanine", "Valine", "Leucine", "Isoleucine", "Methionine", "Phenylalanine", "Tryptophan", "Tyrosine", "Cysteine",
@@ -267,8 +268,9 @@ class App(tk.Tk):
         self.stack = tk.Frame(body, bg=C["bg"]); self.stack.pack(side="left", fill="both", expand=True, padx=(0, 14), pady=10)
         self.views = {}
         self.c_fig = None
+        self.k_fig = None
         for name, builder in (("Browse", self.view_browse), ("Find", self.view_find),
-                              ("Preferences", self.view_pref), ("Plots", self.view_plots), ("Compare", self.view_compare), ("Analyse", self.view_run), ("Help", self.view_help)):
+                              ("Preferences", self.view_pref), ("Plots", self.view_plots), ("Pores", self.view_pores), ("Compare", self.view_compare), ("Analyse", self.view_run), ("Help", self.view_help)):
             fr = tk.Frame(self.stack, bg=C["bg"]); self.views[name] = fr
             builder(fr)
         self.status = tk.StringVar(value="")
@@ -307,7 +309,7 @@ class App(tk.Tk):
         self.nav_btns = {}
         items = [("Browse", "Viruses and their gates"), ("Find", "Search gate residues"),
                  ("Preferences", "Amino-acid statistics"),
-                 ("Plots", "Residues at both gates"), ("Compare", "Capsid types or families"), ("Analyse", "Add new structures"), ("Help", "What this measures")]
+                 ("Plots", "Residues at both gates"), ("Pores", "Charge and chemistry of each opening"), ("Compare", "Capsid types or families"), ("Analyse", "Add new structures"), ("Help", "What this measures")]
         for name, sub in items:
             b = tk.Frame(nav, bg=C["bg"], cursor="hand2")
             b.pack(fill="x", pady=2)
@@ -325,6 +327,8 @@ class App(tk.Tk):
         self.views[name].pack(fill="both", expand=True)
         if name == "Plots":
             self.after(50, self.draw_plots)
+        if name == "Pores" and self.k_fig is None:
+            self.after(50, self.draw_pores)
         if name == "Compare" and self.c_fig is None:
             self.after(50, self.do_compare)
         for n, (b, lab, sl) in self.nav_btns.items():
@@ -382,6 +386,9 @@ class App(tk.Tk):
         o2, i2 = card(right, "Gate residues")
         self.b_title = tk.Label(i2, text="select a virus", font=FONT, bg=C["card"], fg=C["muted"], anchor="w", justify="left")
         self.b_title.pack(fill="x", padx=12, pady=(0, 4))
+        self.b_pdb = None
+        tk.Button(i2, text="View in 3D (opens in your browser)", command=self.open_3d, font=FONT_S, bg=C["accent_soft"],
+                  fg=C["accent"], relief="flat", padx=8, cursor="hand2").pack(anchor="e", padx=12, pady=(0, 4))
         self.b_chart = DistanceChart(i2); self.b_chart.pack(fill="x", padx=6, pady=(0, 6))
         right.add(o2, minsize=260, height=455, stretch="never")
         o3, i3 = card(right, "Residues within the cutoff  (drag the bar above to resize)")
@@ -417,11 +424,17 @@ class App(tk.Tk):
         self.b_class["values"] = ["all"] + self.store.classes()
         self.status.set(f"{len(out)} viruses listed")
 
+    def open_3d(self):
+        if not self.b_pdb:
+            messagebox.showinfo("Pick a virus first", "Select a virus in the list, then press View in 3D."); return
+        webbrowser.open(f"{WEB_URL}?pdb={self.b_pdb}")
+
     def on_pick_virus(self, _ev=None):
         sel = self.b_tree.selection()
         if not sel:
             return
         pdb = self.b_tree.item(sel[0], "values")[1].lower()
+        self.b_pdb = pdb
         st = self.store.q("SELECT * FROM structures WHERE pdb=?", (pdb,))
         res = self.store.q("SELECT * FROM gate_residues WHERE pdb=? ORDER BY gate, distance_A", (pdb,))
         dual = self.store.q("SELECT * FROM dual_positions WHERE pdb=? ORDER BY auth_seq", (pdb,))
@@ -712,6 +725,62 @@ class App(tk.Tk):
             messagebox.showinfo("Saved", p)
 
     # ---------- view: compare two groups (logic in gate_compare.py, shared with the command line)
+    def view_pores(self, root):
+        import gate_chemistry
+        o, i = card(root, "Pores: what lines each opening (charge, hydropathy, bulk)")
+        tk.Label(i, text="Each residue near the axis counts once for every copy around the pore: five times at a 5-fold "
+                         "axis, three times at a 3-fold axis. His is counted as neutral.",
+                 bg=C["card"], fg=C["muted"], font=FONT_S, anchor="w", justify="left", wraplength=1100).pack(fill="x", padx=12)
+        bar = tk.Frame(i, bg=C["card"]); bar.pack(fill="x", padx=12, pady=(6, 4))
+        self.k_gate = ttk.Combobox(bar, width=8, state="readonly", font=FONT, values=["5-fold", "3-fold"]); self.k_gate.set("5-fold")
+        self.k_metric = ttk.Combobox(bar, width=44, state="readonly", font=FONT, values=list(gate_chemistry.METRICS.values()))
+        self.k_metric.set(gate_chemistry.METRICS["net_charge"])
+        self.k_by = ttk.Combobox(bar, width=12, state="readonly", font=FONT, values=["capsid class", "family"]); self.k_by.set("capsid class")
+        self.k_dist = ttk.Combobox(bar, width=4, state="readonly", font=FONT, values=["3", "4", "5", "6", "7", "8"]); self.k_dist.set("8")
+        for lab, wdg in (("axis", self.k_gate), ("measure", self.k_metric), ("group by", self.k_by), ("within (A)", self.k_dist)):
+            tk.Label(bar, text=lab, bg=C["card"], fg=C["muted"], font=FONT_S).pack(side="left", padx=(0, 4))
+            wdg.pack(side="left", padx=(0, 12))
+            wdg.bind("<<ComboboxSelected>>", lambda ev: self.draw_pores())
+        tk.Button(bar, text="Export table", command=self.export_pores, font=FONT_S, bg=C["card"], fg=C["accent"],
+                  relief="flat").pack(side="right")
+        self.k_answer = tk.Label(i, text="", bg=C["accent_soft"], fg=C["ink"], font=FONT, anchor="w", justify="left",
+                                 wraplength=1100, padx=10, pady=6)
+        self.k_answer.pack(fill="x", padx=12, pady=(0, 6))
+        self.k_answer.bind("<Configure>", lambda e: self.k_answer.configure(wraplength=max(e.width - 24, 300)))
+        self.k_host = tk.Frame(i, bg=C["card"]); self.k_host.pack(fill="both", expand=True, padx=8, pady=(0, 8))
+        self.k_df = None
+        o.pack(fill="both", expand=True)
+
+    def draw_pores(self):
+        import gate_chemistry
+        try:
+            if self.k_fig is None:
+                from matplotlib.figure import Figure
+                from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+                self.k_fig = Figure(figsize=(13, 7), dpi=72)
+                self.k_canvas = FigureCanvasTkAgg(self.k_fig, master=self.k_host)
+                self.k_canvas.get_tk_widget().pack(fill="both", expand=True)
+            metric = next(k for k, v in gate_chemistry.METRICS.items() if v == self.k_metric.get())
+            by = "family" if self.k_by.get() == "family" else "capsid_class"
+            con = gate_chemistry.connect(DB)
+            self.k_df = gate_chemistry.data(con, self.k_gate.get(), float(self.k_dist.get()))
+            con.close()
+            self.k_answer.configure(text=gate_chemistry.summary(self.k_df, by, metric))
+            self.status.set("Pores: " + gate_chemistry.draw(self.k_fig, self.k_df, by, metric))
+            self.k_canvas.draw_idle()
+        except Exception as e:
+            self.k_answer.configure(text=f"could not draw: {e}")
+            traceback.print_exc()
+
+    def export_pores(self):
+        if self.k_df is None:
+            return
+        p = filedialog.asksaveasfilename(defaultextension=".csv", initialfile=f"pore_chemistry_{self.k_gate.get()}.csv",
+                                         filetypes=[("CSV", "*.csv")])
+        if p:
+            self.k_df.to_csv(p, index=False)
+            messagebox.showinfo("Saved", p)
+
     def view_compare(self, root):
         o, i = card(root, "Compare: which amino acids does one group of viruses favour at the gates, and the other?")
         tk.Label(i, text="Pick two capsid types or families. For every virus the tool takes the residues at the chosen gate "
@@ -1066,6 +1135,8 @@ class App(tk.Tk):
                 "in words; double-click a row to open that virus.\n"
                 "Preferences - the statistics table: odds ratio above 1 = more common at the gate than in the rest of the "
                 "shell at the same radius; FDR below 0.05 = unlikely to be chance.\n"
+                "Pores - charge, hydropathy and bulk of what lines each opening, by capsid type or family.\n"
+                "Browse also has a View in 3D button that opens the whole capsid in your browser.\n"
                 "Compare - two capsid types or families side by side: which amino acids each group puts at a gate, "
                 "as a share of its gate residues, and whether the difference is real (yellow * = FDR below 0.05).\n"
                 "Plots - the overall answer. 'Simple answer' ranks amino acids from favoured at both gates (top) to "

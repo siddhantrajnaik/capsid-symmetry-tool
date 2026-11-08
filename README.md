@@ -35,6 +35,11 @@ test and the p-values are corrected for testing 20 amino acids.
 
 The results are in `gate_residues.sqlite`, which you can browse in the web version or the desktop program.
 
+Two more views build on the same data. The 3D view loads any of the structures from the PDB and colours the
+residues near each axis on the whole capsid, so you can see the rings they form around the openings. The pore
+chemistry view adds up what lines each opening, counting every copy around the pore: net charge, hydropathy,
+how many aromatic or polar residues, and how bulky they are, compared across capsid types or families.
+
 ![Web version](docs/web_plots.jpg)
 
 ## Running it on your computer
@@ -64,6 +69,7 @@ python gate_residue_analysis.py --csv representatives.csv --sens 3 6 10 --out re
 python gate_plots.py --simple --class "T=3" --cutoff 3 --out plots/t3_3A.png
 python gate_compare.py --a "family=Nodaviridae" --b "family=Caliciviridae" --gate 5-fold
 python gate_stemleaf.py --class "T=3" --aa M
+python gate_chemistry.py --gate 3-fold --by family --metric net_charge --out plots/charge_3fold.png
 python gate_db.py add --db gate_residues.sqlite --run results/fhv
 ```
 
@@ -72,10 +78,11 @@ python gate_db.py add --db gate_residues.sqlite --run results/fhv
 - `gate_residue_analysis.py` finds the axes, measures distances and does the statistics.
 - `gate_db.py` builds and updates the database from analysis output folders.
 - `gate_explorer.py` is the desktop window.
+- `gate_chemistry.py` works out the charge and chemistry of each opening.
 - `gate_plots.py`, `gate_compare.py` and `gate_stemleaf.py` make the figures. The window, the web version and the
   command line all use them.
 - `gate_env.py` checks that all the libraries load before a run starts.
-- `web/` holds the browser version.
+- `web/` holds the browser version; `web/viewer3d.py` sets up the 3D view (Mol*, PDBe build).
 - `representatives.csv` lists one row per virus with candidate PDB IDs.
 
 ## Limitations

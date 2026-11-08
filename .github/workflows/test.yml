@@ -38,7 +38,7 @@ jobs:
           sys.path.insert(0, os.getcwd())      # inline steps run from a temp file, not from the repository folder
           matplotlib.use("Agg")
           import matplotlib.pyplot as plt
-          import gate_plots, gate_compare, gate_stemleaf
+          import gate_plots, gate_compare, gate_stemleaf, gate_chemistry
           con = sqlite3.connect("file:gate_residues.sqlite?mode=ro", uri=True)
           print(gate_plots.build_simple(plt.figure(figsize=(16, 10)), con, "T=3", 3.0))
           print(gate_plots.build(plt.figure(figsize=(16, 11)), con, gate_plots.ALL, 8.0))
@@ -46,3 +46,8 @@ jobs:
           res = gate_compare.compare(c, "family=Nodaviridae", "family=Caliciviridae", "5-fold", 8.0)
           print(gate_compare.summary(res))
           print(gate_stemleaf.text(gate_stemleaf.data(gate_stemleaf.connect(), "T=3")))
+          df = gate_chemistry.data(gate_chemistry.connect(), "5-fold", 8.0)
+          fhv = df[df.pdb == "4ftb"].iloc[0]
+          assert (fhv.n_residues, fhv.n_lining, fhv.net_charge) == (4, 20, 0), fhv
+          print(gate_chemistry.summary(df, "capsid_class", "net_charge"))
+          gate_chemistry.draw(plt.figure(figsize=(13, 7)), df, "family", "hydropathy")

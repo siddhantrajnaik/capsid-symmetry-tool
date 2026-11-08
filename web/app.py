@@ -18,7 +18,8 @@ for p in (HERE, os.path.dirname(HERE)):                 # modules sit next to ap
 DB = next(p for p in (os.path.join(HERE, "gate_residues.sqlite"), os.path.join(os.path.dirname(HERE), "gate_residues.sqlite"))
           if os.path.exists(p))
 
-import gate_plots, gate_compare, gate_stemleaf           # noqa: E402
+import gate_plots, gate_compare, gate_stemleaf, gate_chemistry, viewer3d  # noqa: E402
+import streamlit.components.v1 as components  # noqa: E402
 
 EMAIL = "siddhantrajnaik@gmail.com"
 CREDIT = "Siddhant Raj Naik, PhD scholar, Kusuma School of Biological Sciences, IIT Delhi"
@@ -54,7 +55,9 @@ s = q("SELECT (SELECT COUNT(DISTINCT virus) FROM structures) v, (SELECT COUNT(DI
 st.title("Capsid Symmetry Tool")
 st.caption(f"{s.v} viruses, {s.f} families, {s.g:,} residues near a symmetry axis")
 
-page = st.sidebar.radio("Page", ["Home", "Browse", "Find", "Plots", "Stem-and-leaf", "Compare", "Help"])
+PAGES = ["Home", "Browse", "3D view", "Find", "Plots", "Pore chemistry", "Stem-and-leaf", "Compare", "Help"]
+qp_pdb = (st.query_params.get("pdb") or "").lower()
+page = st.sidebar.radio("Page", PAGES, index=PAGES.index("3D view") if qp_pdb else 0)
 st.sidebar.markdown("---")
 st.sidebar.markdown(f"Made by **Siddhant Raj Naik**  \nPhD scholar, Kusuma School of Biological Sciences, IIT Delhi  \n"
                     f"[{EMAIL}](mailto:{EMAIL})")
@@ -81,8 +84,10 @@ at that axis. The statistics compare those residues with the rest of the capsid 
 The pages on the left:
 
 - **Browse**: pick a virus and see which residues sit near each axis.
+- **3D view**: rotate the whole capsid with those residues coloured.
 - **Find**: pick an amino acid and see which viruses have it there.
 - **Plots**: which amino acids turn up near the axes more than you'd expect.
+- **Pore chemistry**: charge, hydropathy and bulk of what lines each opening, by capsid type or family.
 - **Stem-and-leaf**: every virus on one chart, by how close its nearest residue gets.
 - **Compare**: two capsid types or families side by side.
 
@@ -143,6 +148,32 @@ elif page == "Browse":
         st.dataframe(res.rename(columns={"auth_seq": "residue", "distance_A": "distance Å", "dual_5_3": "both gates"}),
                      hide_index=True, use_container_width=True)
 
+elif page == "3D view":
+    vir = q("SELECT virus, pdb, family, capsid_class FROM structures ORDER BY virus")
+    labels = [f"{r.virus}  ({r.pdb.upper()})" for r in vir.itertuples()]
+    default = next((i for i, r in enumerate(vir.itertuples()) if r.pdb == (qp_pdb or "4ftb")), 0)
+    c = st.columns([3, 2, 2])
+    pick = c[0].selectbox("Virus", labels, index=default)
+    pdb = vir.iloc[labels.index(pick)].pdb
+    whole = c[1].radio("Show", ["whole capsid", "one asymmetric unit"], horizontal=True) == "whole capsid"
+    dmax = c[2].select_slider("Residues within (Å)", options=[3, 4, 5, 6, 7, 8], value=8)
+    g = st.columns(4)
+    show5 = g[0].checkbox("5-fold axis (blue)", True)
+    show3 = g[1].checkbox("3-fold axis (orange)", True)
+    show2 = g[2].checkbox("2-fold axis (grey)", False)
+    res = q("SELECT gate, chain, auth_seq, aa, resname, distance_A, dual_5_3 FROM gate_residues "
+            "WHERE pdb=? AND distance_A <= ? ORDER BY gate, distance_A", (pdb, float(dmax)))
+    keep = {"5-fold": show5, "3-fold": show3, "2-fold": show2}
+    res = res[res.gate.map(keep)]
+    shown = [dict(chain=r.chain, auth_seq=r.auth_seq, gate="both" if r.dual_5_3 and r.gate != "2-fold" else r.gate)
+             for r in res.itertuples()]
+    g[3].markdown("<span style='color:#e8b100'>■</span> same residue number at both axes", unsafe_allow_html=True)
+    components.html(viewer3d.html(pdb, shown, whole), height=650)
+    st.caption("Structure from PDBe, drawn with Mol*. In the whole-capsid view every copy of a residue is coloured, "
+               "so the rings around the openings show up. Grey cartoon is the rest of the shell.")
+    st.dataframe(res.rename(columns={"auth_seq": "residue", "distance_A": "distance Å", "dual_5_3": "both axes"}),
+                 hide_index=True, use_container_width=True)
+
 elif page == "Find":
     st.markdown("Pick an amino acid and an axis. The distance is from the side chain to the axis, so anything "
                 "under about 3 Å is practically on it.")
@@ -192,6 +223,26 @@ elif page == "Plots":
                 "acid shows up there more often than in the rest of the shell, and a star means the difference holds "
                 "after correcting for testing all 20 amino acids. The rows at the top are the ones that are high at both.")
 
+elif page == "Pore chemistry":
+    st.markdown("What lines each opening: its charge, how water-repelling it is, and how bulky. Each residue near "
+                "the axis is counted once for every copy around the pore, five times at a 5-fold axis and three "
+                "times at a 3-fold axis. His is counted as neutral.")
+    c = st.columns(5)
+    gate = c[0].selectbox("Axis", ["5-fold", "3-fold"])
+    metric = c[1].selectbox("Measure", list(gate_chemistry.METRICS), format_func=gate_chemistry.METRICS.get)
+    by = c[2].selectbox("Group by", ["capsid_class", "family"], format_func=lambda x: x.replace("_", " "))
+    cls = c[3].selectbox("Capsid class", [gate_chemistry.ALL] + classes)
+    dmax = c[4].select_slider("Residues within (Å)", options=[3, 4, 5, 6, 7, 8], value=8)
+    cc = gate_chemistry.connect(DB)
+    df = gate_chemistry.data(cc, gate, float(dmax), cls)
+    cc.close()
+    st.info(gate_chemistry.summary(df, by, metric))
+    fig = figure(13, 7)
+    st.caption(gate_chemistry.draw(fig, df, by, metric))
+    st.pyplot(fig)
+    st.dataframe(df.drop(columns=["gate"]), hide_index=True, use_container_width=True, height=420)
+    st.download_button("Download table (CSV)", df.to_csv(index=False), f"pore_chemistry_{gate}.csv", "text/csv")
+
 elif page == "Stem-and-leaf":
     c = st.columns(3)
     cls = c[0].selectbox("Capsid class", [gate_stemleaf.ALL] + classes)
@@ -238,6 +289,10 @@ the centre of the capsid and the 6 five-fold, 10 three-fold and 15 two-fold axes
 from each residue's side-chain atoms to each kind of axis. A residue within 8 Å of an axis is counted as being at
 that axis. If the same residue number is near a 5-fold axis in one subunit and near a 3-fold axis in another, I
 call it a position at both axes.
+
+The pore chemistry page counts every copy of a residue around an opening (five at a 5-fold axis, three at a
+3-fold axis): Lys and Arg count +1, Asp and Glu -1, His 0. Hydropathy is the Kyte-Doolittle scale and the
+volumes are Zamyatnin's. The 3D view draws the structure with Mol* from the RCSB PDB copy of the entry.
 
 To decide whether an amino acid is enriched, I compare it with residues of the same structure that are at the same
 radius in the shell but not near any axis. The viruses are pooled with a Cochran-Mantel-Haenszel test, so one virus
