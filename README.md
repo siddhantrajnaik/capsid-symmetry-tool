@@ -11,7 +11,7 @@
 Siddhant Raj Naik, PhD scholar, Kusuma School of Biological Sciences, IIT Delhi
 ([siddhantrajnaik@gmail.com](mailto:siddhantrajnaik@gmail.com))
 
-**Try it in the browser:** [is.gd/capsidtool](https://is.gd/capsidtool)
+**Try it in the browser:** [tinyurl.com/capsidtool](https://tinyurl.com/capsidtool)
 
 ## Why I made this
 
